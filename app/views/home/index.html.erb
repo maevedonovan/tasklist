@@ -1,0 +1,8 @@
+<h1>Home</h1>
+<p>Personal Tasks:</p>
+
+<ul>
+    <% User.find(session[:user_id]).tasks.each do | task | %>
+	   <li><%= task.name %></li>
+    <% end %>
+</ul>
