@@ -20,6 +20,13 @@
     <%= yield %>
   </div>
 
+  <div id="primary">
+    <% if flash[:message] %>
+      <p class="flash-message"><%= flash[:message] %></p>
+    <% end %>
+   <%= yield %>
+  </div>
+
   <%= render "layouts/sidebar" %>
 
 
@@ -27,7 +34,13 @@
 
 <footer>
 <p>
-  Footer information: fun facts about feet go here
+  Welcome to this nifty task tracker app!
+
+  <% if session[:user_id] %>
+    <%= link_to 'Logout', logout_path %>
+  <% else %>
+    <%= link_to 'Login', login_path %>
+  <% end %>
 </p>
 </footer>
 
